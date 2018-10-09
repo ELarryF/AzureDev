@@ -29,16 +29,16 @@ namespace DotNetCoreSqlDb
 
             //use sql db if in azure otherwise use sqlite
 
-            if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == ("Production"))
+            //if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == ("Production"))
             services.AddDbContext<MyDatabaseContext>(options =>
             
             options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
             
-            else
+            // else
             
-            services.AddDbContext<MyDatabaseContext>(options => 
+            // services.AddDbContext<MyDatabaseContext>(options => 
             
-            options.UseSqlite("DataSource=localdatabase.db"));
+            // options.UseSqlite("DataSource=localdatabase.db"));
             
             //Automatically perform database migration
             services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
