@@ -29,8 +29,7 @@ namespace DotNetCoreSqlDb
 
             //use sql db if in azure otherwise use sqlite
 
-            if(Environment.
-            GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == ("Production"))
+            if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == ("Production"))
             services.AddDbContext<MyDatabaseContext>(options =>
             
             options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
